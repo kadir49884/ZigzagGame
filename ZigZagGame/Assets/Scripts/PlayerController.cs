@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Out Component")]
     [SerializeField] float speed;
     [SerializeField] private TextMeshProUGUI scoreText,bestScoreText;
+    [SerializeField] private GameObject restartPanel,playPanel;
 
     private Vector3 yon = Vector3.left;
     private float artisMiktari = 1;
@@ -19,15 +20,25 @@ public class PlayerController : MonoBehaviour
 
     [Header("Public Variable")]
     public GroundSpawner groundSpawner;
-    public static bool isDead = false;
+    public static bool isDead = true;
     public float hizlanmaZorlugu;
+
+    
 
 
     private void Start()
     {
+        if(RestartGame.isRestart)
+        {
+            isDead = false;
+            playPanel.SetActive(false);
+        }
+
         bestScore = PlayerPrefs.GetInt("BestScore");
         bestScoreText.text ="Best Score: " + bestScore.ToString();
     }
+
+
 
     void Update()
     {
@@ -57,7 +68,7 @@ public class PlayerController : MonoBehaviour
                 bestScore = (int)score;
                 PlayerPrefs.SetInt("BestScore", bestScore);
             }
-
+            restartPanel.SetActive(true);
             Destroy(gameObject, 3);
         }
     }
@@ -75,6 +86,12 @@ public class PlayerController : MonoBehaviour
         speed += Time.deltaTime * hizlanmaZorlugu;
         score += artisMiktari * speed * Time.deltaTime;
         scoreText.text = "Score: " + ((int)score).ToString();
+    }
+
+    public void PlayGame()
+    {
+        isDead = false;
+        playPanel.SetActive(false);
     }
 
 

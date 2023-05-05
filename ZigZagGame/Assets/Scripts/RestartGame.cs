@@ -8,9 +8,12 @@ public class RestartGame : MonoBehaviour
 
     public static bool isRestart = false;
 
+    
+
     public void RestartGameFunction()
     {
         isRestart = true;
+        PlayerController.isDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
