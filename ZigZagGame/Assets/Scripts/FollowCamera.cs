@@ -16,6 +16,11 @@ public class FollowCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = target.transform.position + distance;
+        if(PlayerController.isDead)
+        {
+            return;
+        }
+        //transform.position = target.transform.position + distance;
+        transform.position = Vector3.Lerp(transform.position, target.transform.position + distance, 0.7f);
     }
 }

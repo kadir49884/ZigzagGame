@@ -10,10 +10,23 @@ public class PlayerController : MonoBehaviour
 
     public GroundSpawner groundSpawner;
 
+    private bool isGameStart;
+    public static bool isDead = false;
+
+    private void Start()
+    {
+        StartCoroutine(WaitForStart());
+    }
+
     // Start is called before the first frame update
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (!isGameStart || isDead)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
         {
             if(yon.x == 0)
             {
@@ -24,13 +37,31 @@ public class PlayerController : MonoBehaviour
                 yon = Vector3.back;
             }
         }
+
+        if(transform.position.y < 0.1f)
+        {
+            isDead = true;
+            Destroy(gameObject, 3);
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isGameStart || isDead)
+        {
+            return;
+        }
+
         Vector3 hareket = yon * speed * Time.deltaTime;
-        transform.position += hareket;
+        transform.position = Vector3.Lerp(transform.position, transform.position + hareket, 0.7f);
+        //transform.position += hareket;
+    }
+
+    IEnumerator WaitForStart()
+    {
+        yield return new WaitForEndOfFrame();
+        isGameStart = true;
     }
 
     private void OnCollisionExit(Collision collision)
@@ -39,12 +70,15 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Zeminden cikti");
             groundSpawner.ZeminOlustur();
-            YokEt(collision.gameObject);
+            StartCoroutine(YokEt(collision.gameObject));
         }
     }
 
-    void YokEt(GameObject zemin)
+    IEnumerator YokEt(GameObject zemin)
     {
+        yield return new WaitForSeconds(0.3f);
+        zemin.AddComponent<Rigidbody>();
+        yield return new WaitForSeconds(1f);
         Destroy(zemin);
     }
 }
