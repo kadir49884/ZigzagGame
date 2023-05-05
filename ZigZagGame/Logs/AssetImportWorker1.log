@@ -7573,3 +7573,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005168 seconds.
+Begin MonoManager ReloadAssembly
+Thread 0x178293000 may have been prematurely finalized
+Symbol file LoadedFromMemory doesn't match image /Users/derslik1-06/Desktop/MyUnityProjects/ZigzagGame/ZigZagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/derslik1-06/Desktop/MyUnityProjects/ZigzagGame/ZigZagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.742 seconds
+Domain Reload Profiling:
+	ReloadAssembly (743ms)
+		BeginReloadAssembly (151ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (63ms)
+		EndReloadAssembly (524ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (203ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (205ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (41ms)
+				ProcessInitializeOnLoadAttributes (128ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (2ms)
+Platform modules already initialized, skipping
+Callback registration failed. Increase kMaxCallback.
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+Obtained 30 stack frames.
+#0  0x00000185f0d9b8 in __pthread_kill
+#1  0x2f05800185e7e314 in abort
+#2  0xce35800104898790 in _GLOBAL__sub_I_BugReportingTools.mm
+#3  0x000001036a8ed0 in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry&)
+#4  0x000001036a865c in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#5  0x000001036a9ab0 in LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x0000010430e518 in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#7  0x0000010430ea98 in DebugStringToFile(DebugStringToFileData const&)
+#8  0x000001030be7cc in CallbackArrayBase<void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform)>::Register(void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform), void const*)
+#9  0x000001037809d0 in LoadDomainAndUserAssemblies()
+#10 0x00000103782a4c in LoadUserAssemblies()
+#11 0x00000103f9edf8 in AssetImportWorkerClient::ReloadMonoDomain(AssetResolver&)
+#12 0x00000103fae374 in invocation function for block in AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_4::operator()() const
+#13 0x00000185d82bac in _dispatch_client_callout
+#14 0xa54000185d91ed8 in _dispatch_async_and_wait_invoke
+#15 0x7e71800185d82bac in _dispatch_client_callout
+#16 0x5d1e800185d910ac in _dispatch_main_queue_callback_4CF
+#17 0x984080018604df00 in __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__
+#18 0x7c5280018600b8c0 in __CFRunLoopRun
+#19 0x6f1300018600a734 in CFRunLoopRunSpecific
+#20 0x363a00018eba2f68 in RunCurrentEventLoopInMode
+#21 0x494c00018eba2cdc in ReceiveNextEventCommon
+#22 0xba6980018eba2a9c in _BlockUntilNextEventMatchingListInModeWithFilter
+#23 0x695c800188b61000 in _DPSNextEvent
+#24 0x5528800188b5f8a4 in -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+#25 0x6908800188b519b4 in -[NSApplication run]
+#26 0x2b29800188b23088 in NSApplicationMain
+#27 0x5b0f0001048a77e0 in EditorMain(int, char const**)
+#28 0x000001048a7b18 in main
+#29 0x00000107e350f4 in (Unknown)

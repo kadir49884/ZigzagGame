@@ -7711,3 +7711,84 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1334.367509 seconds.
+  path: Assets/Scripts/ChangeColor.cs
+  artifactKey: Guid(d1dee36d80fd643e18277d8d4ac9feea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ChangeColor.cs using Guid(d1dee36d80fd643e18277d8d4ac9feea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7df48a45de064385dda44a969e991fe6') in 0.031909 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006028 seconds.
+Begin MonoManager ReloadAssembly
+Thread 0x17fd6b000 may have been prematurely finalized
+Symbol file LoadedFromMemory doesn't match image /Users/derslik1-06/Desktop/MyUnityProjects/ZigzagGame/ZigZagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image /Users/derslik1-06/Desktop/MyUnityProjects/ZigzagGame/ZigZagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.742 seconds
+Domain Reload Profiling:
+	ReloadAssembly (743ms)
+		BeginReloadAssembly (152ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (58ms)
+		EndReloadAssembly (524ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (201ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (207ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (41ms)
+				ProcessInitializeOnLoadAttributes (127ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (2ms)
+Platform modules already initialized, skipping
+Callback registration failed. Increase kMaxCallback.
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+Obtained 30 stack frames.
+#0  0x00000185f0d9b8 in __pthread_kill
+#1  0x8228000185e7e314 in abort
+#2  0x1611000104c68790 in _GLOBAL__sub_I_BugReportingTools.mm
+#3  0x00000103a78ed0 in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry&)
+#4  0x00000103a7865c in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#5  0x00000103a79ab0 in LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x000001046de518 in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#7  0x000001046dea98 in DebugStringToFile(DebugStringToFileData const&)
+#8  0x0000010348e7cc in CallbackArrayBase<void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform)>::Register(void (*)(BuildTargetPlatform), void (*)(void const*, BuildTargetPlatform), void const*)
+#9  0x00000103b509d0 in LoadDomainAndUserAssemblies()
+#10 0x00000103b52a4c in LoadUserAssemblies()
+#11 0x0000010436edf8 in AssetImportWorkerClient::ReloadMonoDomain(AssetResolver&)
+#12 0x0000010437e374 in invocation function for block in AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_4::operator()() const
+#13 0x00000185d82bac in _dispatch_client_callout
+#14 0x8941800185d91ed8 in _dispatch_async_and_wait_invoke
+#15 0xa113800185d82bac in _dispatch_client_callout
+#16 0x2b52000185d910ac in _dispatch_main_queue_callback_4CF
+#17 0x413b80018604df00 in __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__
+#18 0x43100018600b8c0 in __CFRunLoopRun
+#19 0x347880018600a734 in CFRunLoopRunSpecific
+#20 0x484b00018eba2f68 in RunCurrentEventLoopInMode
+#21 0x391a00018eba2cdc in ReceiveNextEventCommon
+#22 0x517880018eba2a9c in _BlockUntilNextEventMatchingListInModeWithFilter
+#23 0xe043800188b61000 in _DPSNextEvent
+#24 0xc86e800188b5f8a4 in -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+#25 0x603a000188b519b4 in -[NSApplication run]
+#26 0x9573000188b23088 in NSApplicationMain
+#27 0x4375800104c777e0 in EditorMain(int, char const**)
+#28 0x00000104c77b18 in main
+#29 0x000001082410f4 in (Unknown)
