@@ -7,20 +7,21 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    Vector3 yon = Vector3.left;
+    [Header("Out Component")]
     [SerializeField] float speed;
+    [SerializeField] private TextMeshProUGUI scoreText,bestScoreText;
 
-    public GroundSpawner groundSpawner;
-
-    public static bool isDead = false;
-
-
-    public float hizlanmaZorlugu;
+    private Vector3 yon = Vector3.left;
     private float artisMiktari = 1;
     private float score = 0f;
     private int bestScore = 0;
 
-    [SerializeField] private TextMeshProUGUI scoreText,bestScoreText;
+
+    [Header("Public Variable")]
+    public GroundSpawner groundSpawner;
+    public static bool isDead = false;
+    public float hizlanmaZorlugu;
+
 
     private void Start()
     {
