@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
 
     public float hizlanmaZorlugu;
+    private float artisMiktari = 1;
+    private float score = 0f;
+
+    [SerializeField] TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Update()
@@ -53,7 +59,8 @@ public class PlayerController : MonoBehaviour
         Vector3 hareket = yon * speed * Time.deltaTime;
         transform.position = Vector3.Lerp(transform.position, transform.position + hareket, 0.7f);
         speed += Time.deltaTime * hizlanmaZorlugu;
-        //transform.position += hareket;
+        score += artisMiktari * speed * Time.deltaTime;
+        scoreText.text = "Score " + ((int)score).ToString();
     }
 
 

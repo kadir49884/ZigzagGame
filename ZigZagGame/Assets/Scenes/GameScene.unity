@@ -463,6 +463,8 @@ MonoBehaviour:
   speed: 2
   groundSpawner: {fileID: 905887184}
   hizlanmaZorlugu: 0.04
+  artisMiktari: 0
+  scoreText: {fileID: 1732185732}
 --- !u!135 &711435912
 SphereCollider:
   m_ObjectHideFlags: 0
