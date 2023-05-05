@@ -15,10 +15,35 @@ public class ChangeColor : MonoBehaviour
     private void Start()
     {
         birinciRenk = Random.Range(0, colors.Length);
+        ikinciRenk = colors[IkinciRenkSec()];
         zeminMat.color = colors[birinciRenk];
         Camera.main.backgroundColor = colors[birinciRenk];
     }
 
+    private void Update()
+    {
+        Color fark = (zeminMat.color - ikinciRenk);
+        if(Mathf.Abs(fark.r)+ Mathf.Abs(fark.g) + Mathf.Abs(fark.b) < 0.2f)
+        {
+            ikinciRenk = colors[IkinciRenkSec()];
+        }
 
+        zeminMat.color = Color.Lerp(zeminMat.color, ikinciRenk, 0.005f);
+        Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, ikinciRenk, 0.009f);
+    }
+
+    int IkinciRenkSec()
+    {
+        int ikinciRenkIndex;
+        ikinciRenkIndex = Random.Range(0, colors.Length);
+        while(ikinciRenkIndex == birinciRenk)
+        {
+            ikinciRenkIndex = Random.Range(0, colors.Length);
+        }
+        return ikinciRenkIndex;
+    }
+
+
+   
 
 }//class
