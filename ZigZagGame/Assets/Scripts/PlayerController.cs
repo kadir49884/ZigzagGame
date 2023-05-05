@@ -18,10 +18,16 @@ public class PlayerController : MonoBehaviour
     public float hizlanmaZorlugu;
     private float artisMiktari = 1;
     private float score = 0f;
+    private int bestScore = 0;
 
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText,bestScoreText;
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        bestScore = PlayerPrefs.GetInt("BestScore");
+        bestScoreText.text ="Best Score: " + bestScore.ToString();
+    }
+
     void Update()
     {
         if ( isDead)
@@ -44,6 +50,13 @@ public class PlayerController : MonoBehaviour
         if(transform.position.y < 0.1f)
         {
             isDead = true;
+
+            if( score > bestScore)
+            {
+                bestScore = (int)score;
+                PlayerPrefs.SetInt("BestScore", bestScore);
+            }
+
             Destroy(gameObject, 3);
         }
     }
@@ -60,7 +73,7 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, transform.position + hareket, 0.7f);
         speed += Time.deltaTime * hizlanmaZorlugu;
         score += artisMiktari * speed * Time.deltaTime;
-        scoreText.text = "Score " + ((int)score).ToString();
+        scoreText.text = "Score: " + ((int)score).ToString();
     }
 
 
